@@ -1,0 +1,408 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="chengshuomin"><title>Hexo</title><meta name="description" content="chengshuomin blog"><meta name="keywords" content="Blog,博客,chengshuomin"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon1.svg"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.1.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a href="/">首页</a></li><li> <a href="/archives">归档</a></li><li> <a href="/tags">标签</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/logo.jpg"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/title.svg" style="width:200px;" alt="favicon"><h3 title=""><a href="/">Hexo</a></h3><div class="description"><p>chengshuomin blog</p></div></div><ul class="social-links"></ul></div></div><div class="footer"><div class="p"><span> 全站 CC-BY-SA-3.0</span><i class="fa fa-star"></i><span> chengshuomin</span></div><div class="by_farbox"><span>Powered by</span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo</a><span> &</span><span>Anatolo</span></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/302-%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">正向代理与反向代理</a></h3></div><div class="post-content"><div class="card"><p><p><img src="/302-%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/1658237934758-62135c80-5ead-42bf-aa8b-f86c770e6697.png" alt="img"></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>正向代理</strong></th>
+<th><strong>反向代理</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>代理目标</td>
+<td><strong>“代理服务器”代理了”客户端”，去和”目标服务器”进行交互</strong></td>
+<td><strong>“代理服务器”代理了”目标服务器”，去和”客户端”进行交互</strong></td>
+</tr>
+<tr>
+<td>访问目标服务器时</td>
+<td>目标服务器是不知道真正的客户端是谁的，甚至不知道访问自己的是一个代理</td>
+<td>客户端是不知道真正的目标服务器是谁的，甚至不知道自己访问的是一个代理</td>
+</tr>
+<tr>
+<td></td>
+<td>代理服务器 帮助 客户端 请求页面并缓存，再返回给 客户端</td>
+<td>代理服务器 将 目标服务器 请求结果缓存到本地，再返回给 客户端</td>
+</tr>
+<tr>
+<td></td>
+<td>客户端 使用 代理服务器的 IP 和端口去浏览器访问</td>
+<td>服务端 使用 代理服务器的 IP 和端口给 客户端 使用</td>
+</tr>
+</tbody></table>
+<h2 id="正向代理-（forward-proxy）"><a href="#正向代理-（forward-proxy）" class="headerlink" title="正向代理 （forward proxy）"></a>正向代理 （forward proxy）</h2><p>为了从 <code>目标服务器</code> 获取内容，<code>客户端</code> 向 <code>代理服务器</code> 发送一个请求并指定目标，然后 <code>代理服务器</code> 向 <code>目标服务器</code> 转发请求，并将获得的内容返回给 <code>客户端</code>。</p>
+<h3 id="常见场景："><a href="#常见场景：" class="headerlink" title="常见场景："></a>常见场景：</h3><ul>
+<li>访问 国外技术 网站</li>
+<li>早些年，没有使用 node 时的前后端分离，常用 Tomcat, IIS 作为 Web 服务器，这种方式就是 正向代理。</li>
+</ul>
+<h3 id="正向代理的用途"><a href="#正向代理的用途" class="headerlink" title="正向代理的用途"></a><strong>正向代理的用途</strong></h3><ul>
+<li><strong>突破访问限制</strong></li>
+</ul>
+<p>通过代理服务器，可以突破自身 IP 访问限制，访问国外网站，教育网等。</p>
+<ul>
+<li><strong>提高访问速度</strong></li>
+</ul>
+<p>通常代理服务器都设置一个较大的硬盘缓冲区，会将部分请求的响应保存到<strong>缓冲区</strong>中，当其他用户再访问相同的信息时， 则直接由缓冲区中取出信息，传给用户，以提高访问速度。</p>
+<ul>
+<li><strong>隐藏客户端真实 IP</strong></li>
+</ul>
+<p>上网者也可以通过这种方法隐藏自己的IP，免受攻击。</p>
+<h2 id="2-反向代理（reverse-proxy）"><a href="#2-反向代理（reverse-proxy）" class="headerlink" title="2. 反向代理（reverse proxy）"></a>2. 反向代理（reverse proxy）</h2><p>用 <code>代理服务器</code> 接收 <code>客户端</code> 的连接请求，将请求转发给 <code>目标服务器</code>，然后将 <code>目标服务器</code> 返回的结果，再返回给 <code>客户端</code>。 </p>
+<h3 id="常见场景：-1"><a href="#常见场景：-1" class="headerlink" title="常见场景："></a>常见场景：</h3><ul>
+<li><p>负载均衡（Nginx）：客户端发送请求到负载均衡服务器上，负载均衡服务器再把请求转发给其中一台服务器来执行，再把执行结果返回给客户端。</p>
+</li>
+<li><p>前端 Node 服务。</p>
+</li>
+<li><ul>
+<li><strong>为什么 Node.js 要用 反向代理？</strong> （<a target="_blank" rel="noopener" href="https://www.yisu.com/zixun/489265.html%EF%BC%89">https://www.yisu.com/zixun/489265.html）</a></li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>Node.js 是高可塑性的。它可以从文件系统架设静态资源服务、对 HTTP 响应执行 gzip 压缩、内建支持  HTTPS，另有很多其它特性。它甚至有能力通过 cluster 模块，运行一个应用的多个实例并分发其自身的请求。然而，基本上让一个反向代理来处理这些操作，而不是靠 Node.js 应用去做。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="反向代理的用途"><a href="#反向代理的用途" class="headerlink" title="反向代理的用途"></a><strong>反向代理的用途</strong></h3><ul>
+<li><strong>隐藏服务器真实 IP</strong></li>
+</ul>
+<p>使用反向代理，可以对客户端隐藏服务器的IP地址。</p>
+<ul>
+<li><strong>负载均衡</strong></li>
+</ul>
+<p>反向代理服务器可以做负载均衡，根据所有真实服务器的负载情况，将客户端请求分发到不同的真实服务器上。</p>
+<ul>
+<li><strong>提高访问速度</strong></li>
+</ul>
+<p>反向代理服务器可以对于静态内容及短时间内有大量访问请求的动态内容<strong>提供缓存服务</strong>，提高访问速度。</p>
+<p>即，二房东同样有房屋信息和钥匙。</p>
+<ul>
+<li><strong>提供安全保障</strong></li>
+</ul>
+<p>反向代理服务器可以作为应用层防火墙，为网站提供对基于Web的攻击行为（例如DoS&#x2F;DDoS）的防护，更容易排查恶意软件等。还可以为后端服务器统一提供加密和SSL加速（如SSL终端代理），提供HTTP访问认证等。</p>
+<h2 id="3-区别："><a href="#3-区别：" class="headerlink" title="3. 区别："></a>3. 区别：</h2><p>虽然正向代理服务器和反向代理服务器所处的位置都是客户端和真实服务器之间，所做的事情也都是把客户端的请求转发给服务器，再把服务器的响应转发给客户端，但是二者之间还是有一定的差异的。</p>
+<p>1、<strong>正向代理其实是客户端的代理</strong>，帮助客户端访问其无法访问的服务器资源。<strong>反向代理则是服务器的代理</strong>，帮助服务器做负载均衡，安全防护等。</p>
+<p>2、<strong>正向代理一般是客户端架设的</strong>，比如在自己的机器上安装一个代理软件。而<strong>反向代理一般是服务器架设的</strong>，比如在自己的机器集群中部署一个反向代理服务器。</p>
+<p>3、<strong>正向代理中，服务器不知道真正的客户端到底是谁</strong>，以为访问自己的就是真实的客户端。而在<strong>反向代理中，客户端不知道真正的服务器是谁</strong>，以为自己访问的就是真实的服务器。</p>
+<p>4、正向代理和反向代理的作用和目的不同。<strong>正向代理主要是用来解决访问限制问题。而反向代理则是提供负载均衡、安全防护等作用。二者均能提高访问速度。</strong></p>
+<p>参考：</p>
+<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1418457">https://cloud.tencent.com/developer/article/1418457</a></p>
+</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2021-10-09</span><i class="fa fa-tag"></i><a class="tag" href="/tags/综合/" title="综合">综合 </a><span class="leancloud_visitors"></span><span>大约1440个字, 4分钟48秒读完</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/02-%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/">防抖节流</a></h3></div><div class="post-content"><div class="card"><p><h2 id="1-防抖："><a href="#1-防抖：" class="headerlink" title="1. 防抖："></a>1. 防抖：</h2><h3 id="1-1-防抖"><a href="#1-1-防抖" class="headerlink" title="1.1 防抖"></a>1.1 防抖</h3><p>在一定时间n秒内，多次重复触发（重复触发时重新计时），只在最后一次触发后n秒执行一次。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 防抖</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span>(<span class="params">fn, delay</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> timer</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params">...args1</span>) &#123;</span><br><span class="line">      <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">      timer = <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">        fn.<span class="title function_">apply</span>(<span class="variable language_">this</span>, args1)</span><br><span class="line">      &#125;, delay)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="应用场景："><a href="#应用场景：" class="headerlink" title="应用场景："></a>应用场景：</h4><ul>
+<li>键盘输入input框监听，搜索内容时在最后发送一次请求</li>
+<li>手机号、邮箱验证输入时</li>
+<li>窗口大小resize。只需窗口调整完成后，计算窗口大小。防止重复渲染。</li>
+</ul>
+<h3 id="1-2-防抖（立即执行）"><a href="#1-2-防抖（立即执行）" class="headerlink" title="1.2 防抖（立即执行）"></a>1.2 防抖（立即执行）</h3><p>在一定时间n秒内，多次重复触发（重复触发时重新计时），只在第一次触发后n秒执行一次。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 防抖（立即执行）</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">debounce2</span>(<span class="params">fn, delay</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">    <span class="comment">// let flag = false</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params">...args</span>) &#123;</span><br><span class="line">        <span class="comment">// if (!flag) &#123;  //直接用timer是否为空判断，更简洁</span></span><br><span class="line">        <span class="keyword">if</span> (!timer) &#123;</span><br><span class="line">            fn.<span class="title function_">apply</span>(<span class="variable language_">this</span>, args)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (timer) <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">        timer = <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">            timer = <span class="literal">null</span></span><br><span class="line">        &#125;, delay)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="应用场景：-1"><a href="#应用场景：-1" class="headerlink" title="应用场景："></a>应用场景：</h4><ul>
+<li>表单提交按钮的触发</li>
+</ul>
+<h2 id="2-节流："><a href="#2-节流：" class="headerlink" title="2. 节流："></a>2. 节流：</h2><p> 在 n  秒内只运行一次，若在 n 秒内重复触发，只有延迟时间到后那一次生效。</p>
+<h3 id="2-1-节流（定时器）"><a href="#2-1-节流（定时器）" class="headerlink" title="2.1 节流（定时器）"></a>2.1 节流（定时器）</h3><p>触发 n 秒后，执行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 节流（定时器）</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">throttled</span>(<span class="params">fn, delay</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params">...args</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!timer) &#123;</span><br><span class="line">            timer = <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">                fn.<span class="title function_">apply</span>(<span class="variable language_">this</span>, args)</span><br><span class="line">                <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">                timer = <span class="literal">null</span></span><br><span class="line">            &#125;, delay)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-节流（时间戳）"><a href="#2-2-节流（时间戳）" class="headerlink" title="2.2 节流（时间戳）"></a>2.2 节流（时间戳）</h3><p>停止触发时，若时间间隔不够，则无法执行函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 节流（时间戳）</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">throttled2</span>(<span class="params">fn, delay</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> last = <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params">...args</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> now = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line">        <span class="keyword">if</span> (now - last &gt;= delay) &#123;</span><br><span class="line">            fn.<span class="title function_">apply</span>(<span class="variable language_">this</span>, args)</span><br><span class="line">            last = now</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="应用场景：-2"><a href="#应用场景：-2" class="headerlink" title="应用场景："></a>应用场景：</h4><ul>
+<li>提交等接口，防止重复调用多次</li>
+<li>监听滚动事件，比如是否滑到底部自动加载更多，用throttle来判断。</li>
+</ul>
+<h2 id="3-区别"><a href="#3-区别" class="headerlink" title="3. 区别"></a>3. 区别</h2><ul>
+<li>防抖是重复触发时，不断清除定时器，重置初始时间，直到n秒内不再触发再执行一次</li>
+<li>节流是重复触发时，挂起&#x2F;不调用函数，以此方式阻止重复执行</li>
+<li>函数防抖关注一定时间连续触发的事件，只在最后执行一次；而函数节流关注一段时间内只执行一次</li>
+</ul>
+<h2 id="4-附-完整测试代码"><a href="#4-附-完整测试代码" class="headerlink" title="4. 附 - 完整测试代码"></a>4. 附 - 完整测试代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="variable constant_">DOCTYPE</span> html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">    防抖：    &lt;input id=&quot;debounce&quot; &gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">    防抖（立即执行）：    &lt;input id=&quot;debounce2&quot; &gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">    节流（定时器）：    &lt;input id=&quot;throttled&quot; &gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">    节流（时间戳）：    &lt;input id=&quot;throttled2&quot; &gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    function ajax() &#123;</span><br><span class="line">        let v = arguments[0]</span><br><span class="line">        let label = arguments[1]</span><br><span class="line">        console.log(label + &#x27;：&#x27; + v)</span><br><span class="line">    &#125;</span><br><span class="line">    // 封装节流防抖后的ajax</span><br><span class="line">    function packingAjax(type) &#123;</span><br><span class="line">        switch (type) &#123;</span><br><span class="line">            case 0:</span><br><span class="line">                return debounce(ajax, 1000) // 不可写成 ajax(),会立即执行ajax方法，便会失去延迟效果</span><br><span class="line">                break</span><br><span class="line">            case 1:</span><br><span class="line">                // throttled(ajax(v, txt), 1000)</span><br><span class="line">                return throttled(ajax, 3000)</span><br><span class="line">                break</span><br><span class="line">            case 2:</span><br><span class="line">                return debounce2(ajax, 1000)</span><br><span class="line">                break</span><br><span class="line">            case 3:</span><br><span class="line">                return throttled2(ajax, 3000)</span><br><span class="line">                break</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 防抖</span><br><span class="line">    function debounce(fn, delay) &#123;</span><br><span class="line">        let timer</span><br><span class="line">        return function (...args1) &#123;</span><br><span class="line">            clearTimeout(timer)</span><br><span class="line">            timer = setTimeout(()=&gt;&#123;</span><br><span class="line">                fn.apply(this, args1)</span><br><span class="line">            &#125;, delay)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    let d = document.getElementById(&#x27;debounce&#x27;)</span><br><span class="line">    let packing = packingAjax(0)</span><br><span class="line">    // 注意！！！</span><br><span class="line">    // 必须放外层，若放在监听中，则每次都会调用 debounce(ajax, 1000) 一次，便每次都要初始化timer，失去回调意义</span><br><span class="line">    d.addEventListener(&quot;keyup&quot;, function (e) &#123;</span><br><span class="line">        packing(e.target.value, &#x27;防抖&#x27;)</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    // 防抖（立即执行）</span><br><span class="line">    function debounce2(fn, delay) &#123;</span><br><span class="line">        let timer = null</span><br><span class="line">        // let flag = false</span><br><span class="line">        return function (...args) &#123;</span><br><span class="line">            // if (!flag) &#123;  //直接用timer是否为空判断，更简洁</span><br><span class="line">            if (!timer) &#123;</span><br><span class="line">                fn.apply(this, args)</span><br><span class="line">            &#125;</span><br><span class="line">            if (timer) clearTimeout(timer)</span><br><span class="line">            timer = setTimeout(()=&gt;&#123;</span><br><span class="line">                timer = null</span><br><span class="line">            &#125;, delay)</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    let d2 = document.getElementById(&#x27;debounce2&#x27;)</span><br><span class="line">    let packing2 = packingAjax(2)</span><br><span class="line">    d2.addEventListener(&quot;keyup&quot;, function (e) &#123;</span><br><span class="line">        packing2(e.target.value, &#x27;防抖（立即执行）&#x27;)</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    // 节流（定时器）</span><br><span class="line">    function throttled(fn, delay) &#123;</span><br><span class="line">        let timer = null</span><br><span class="line">        return function (...args) &#123;</span><br><span class="line">            if (!timer) &#123;</span><br><span class="line">                timer = setTimeout(()=&gt;&#123;</span><br><span class="line">                    fn.apply(this, args)</span><br><span class="line">                    clearTimeout(timer)</span><br><span class="line">                    timer = null</span><br><span class="line">                &#125;, delay)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    let t = document.getElementById(&#x27;throttled&#x27;)</span><br><span class="line">    let packing1 = packingAjax(1)</span><br><span class="line">    t.addEventListener(&quot;keyup&quot;, function (e) &#123;</span><br><span class="line">        packing1(e.target.value, &#x27;节流（定时器）&#x27;)</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    // 节流（时间戳）</span><br><span class="line">    function throttled2(fn, delay) &#123;</span><br><span class="line">        let last = 0</span><br><span class="line">        return function (...args) &#123;</span><br><span class="line">            let now = new Date()</span><br><span class="line">            if (now - last &gt;= delay) &#123;</span><br><span class="line">                fn.apply(this, args)</span><br><span class="line">                last = now</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    let t2 = document.getElementById(&#x27;throttled2&#x27;)</span><br><span class="line">    let packing3 = packingAjax(3)</span><br><span class="line">    t2.addEventListener(&quot;keyup&quot;, function (e) &#123;</span><br><span class="line">        packing3(e.target.value, &#x27;节流（时间戳）&#x27;)</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2021-09-21</span><i class="fa fa-tag"></i><a class="tag" href="/tags/JavaScript/" title="JavaScript">JavaScript </a><span class="leancloud_visitors"></span><span>大约1065个字, 3分钟33秒读完</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/01-%E5%BE%AE%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%AE%8F%E4%BB%BB%E5%8A%A1/">微任务与宏任务</a></h3></div><div class="post-content"><div class="card"><p><p>宏任务有Event Table、Event Queue，微任务有Event Queue</p>
+<p>javascript是一门单线程、异步、非阻塞、解析类型脚本语言。</p>
+<h2 id="1-进程-amp-线程"><a href="#1-进程-amp-线程" class="headerlink" title="1. 进程 &amp; 线程"></a>1. 进程 &amp; 线程</h2><h3 id="1-1-进程："><a href="#1-1-进程：" class="headerlink" title="1.1 进程："></a>1.1 进程：</h3><ul>
+<li>程序运行的实例</li>
+<li>同一程序可以产生多个进程</li>
+<li>一个进程包含一个或多个线程</li>
+</ul>
+<h3 id="1-2-线程："><a href="#1-2-线程：" class="headerlink" title="1.2 线程："></a>1.2 线程：</h3><ul>
+<li>操作系统能够进行运算调度的最小单位</li>
+<li>一次只能执行一个任务</li>
+<li>有自己的调用栈、寄存器环境</li>
+<li>同一进程的线程共享进程资源</li>
+</ul>
+<h3 id="1-3-JS单线程："><a href="#1-3-JS单线程：" class="headerlink" title="1.3 JS单线程："></a>1.3 JS单线程：</h3><p>JavaScript 单线程指的是浏览器中负责解释和执行 JavaScript 代码的只有一个线程，即为<strong>JS引擎线程</strong></p>
+<h3 id="1-4-浏览器渲染是多线程："><a href="#1-4-浏览器渲染是多线程：" class="headerlink" title="1.4 浏览器渲染是多线程："></a>1.4 浏览器渲染是多线程：</h3><p>但浏览器的渲染进程是提供多个线程的，如下：</p>
+<ul>
+<li>JS引擎线程</li>
+<li>事件触发线程</li>
+<li>定时触发器线程（定时器触发线程只是为 setTimeout(…, n) 定时，n秒后，把它对应的回调函数(callback)交给 <strong>任务队列</strong> 维护，JS引擎线程会在适当的时候去任务队列取出任务并执行。）</li>
+<li>异步http请求线程</li>
+<li>GUI渲染线程</li>
+</ul>
+<p><img src="/01-%E5%BE%AE%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%AE%8F%E4%BB%BB%E5%8A%A1/1650942425429-e24c82db-1b8e-4420-bebe-bb6f759831e7.png" alt="img"></p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="2-JavaScript的运行机制"><a href="#2-JavaScript的运行机制" class="headerlink" title="2. JavaScript的运行机制"></a><strong>2. JavaScript的运行机制</strong></h2><h3 id="2-1-事件循环-event-loop-与消息队列"><a href="#2-1-事件循环-event-loop-与消息队列" class="headerlink" title="2.1 事件循环**(event loop)**与消息队列"></a>2.1 事件循环**(<strong><strong>event</strong> <strong>loop</strong></strong>)**与消息队列</h3><p><strong>事件触发线程</strong> 控制通过 <strong>事件循环</strong> <strong>event loop</strong> 的机制，维护<strong>任务队列。</strong></p>
+<p>JS引擎线程遇到异步(DOM事件监听、网络请求、setTimeout计时器等…)，会交给相应的线程单独去维护异步任务，等待某个时机(计时器结束、网络请求成功、用户点击DOM)，然后由 <strong>事件触发线程</strong> 将异步对应的 <strong>回调函数</strong> 加入到消息队列中，消息队列中的回调函数等待被执行。</p>
+<p>消息队列是类似队列的数据结构，遵循先入先出(FIFO)的规则。</p>
+<p>\1. 所有同步任务都在主线程上执行，形成一个执行栈(execution context stack)。</p>
+<p>\2. 主线程之外，还存在一个”任务队列”(task queue)。只要异步任务有了运行结果，就在”任务队列”之中放置一个事件。</p>
+<p>\3. 一但”执行栈”中的所有同步任务执行完毕，系统就会读取”任务队列”，看看里面有哪些事件。那些对应的异步任务，于是结束等待状态，进入执行栈，开始执行。</p>
+<p>\4. 主线程不断重复上面的第三步。只要主线程空了，就会去读取”任务队列”，这就是<strong>JavaScript的运行机制</strong>。这个过程会不断重复，这种机制就被称为<strong>事件循环(<strong><strong>event</strong> <strong>loop</strong></strong>)机制</strong>。</p>
+<p><img src="/01-%E5%BE%AE%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%AE%8F%E4%BB%BB%E5%8A%A1/1650968199869-e0c304a9-7a5f-47f4-92f2-10df07dff987.png" alt="img"></p>
+<h3 id="2-2-同步任务-synchronous-与异步任务-asynchronous"><a href="#2-2-同步任务-synchronous-与异步任务-asynchronous" class="headerlink" title="2.2 同步任务**(synchronous)与异步任务(asynchronous)**"></a>2.2 同步任务**(synchronous)<strong>与异步任务</strong>(asynchronous)**</h3><p>同步任务指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；异步任务指的是，不进入主线程、而进入”任务队列”(task queue)的任务，只有”任务队列”通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行。</p>
+<h4 id="异步任务举例："><a href="#异步任务举例：" class="headerlink" title="异步任务举例："></a>异步任务举例：</h4><ul>
+<li>网络请求</li>
+<li>计时器</li>
+<li>DOM事件监听</li>
+</ul>
+<p><img src="/01-%E5%BE%AE%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%AE%8F%E4%BB%BB%E5%8A%A1/1650855953186-6991f7dc-18a6-4837-a969-bd393f00311f.png" alt="img"></p>
+<h2 id="3-微任务与宏任务"><a href="#3-微任务与宏任务" class="headerlink" title="3. 微任务与宏任务"></a>3. 微任务与宏任务</h2><h3 id="微任务（microtask）："><a href="#微任务（microtask）：" class="headerlink" title="微任务（microtask）："></a>微任务（microtask）：</h3><ul>
+<li><code>**Promise.then**</code>、<code>**Promise.catch**</code> 和 <code>**Promise.finally**</code></li>
+<li><code>process.nextTick</code> (Node.js 环境)</li>
+<li>Object.observe() 异步地监视一个对象的修改（已废弃）</li>
+<li><code>fetch </code></li>
+<li>V8 的垃圾回收过程</li>
+</ul>
+<h3 id="宏任务（macrotask）："><a href="#宏任务（macrotask）：" class="headerlink" title="宏任务（macrotask）："></a>宏任务（macrotask）：</h3><ul>
+<li><code>**script**</code></li>
+<li><strong>主线程任务</strong></li>
+<li>异步ajax请求</li>
+<li><code>setTimeout</code></li>
+<li><code>setInterval</code></li>
+<li>文件操作(I&#x2F;O)</li>
+<li><code>setImmediate</code>(Node.js 环境 和 IE10 支持) （把一些需要长时间运行的操作放在一个回调函数里）</li>
+<li><code>UI rendering</code></li>
+</ul>
+<h3 id="执行顺序规则："><a href="#执行顺序规则：" class="headerlink" title="执行顺序规则："></a>执行顺序规则：</h3><ul>
+<li><strong>new Promise 是同步任务，****new Promise中的代码会立即执行</strong></li>
+<li><strong>new Promise.then 是微任务，then函数分发到微任务队列Event Queue</strong> <strong>(then</strong>链式写法，即then方法后面再调用另一个then方法，第一个回调函数完成以后，会将返回结果作为参数，传入第二个回调函数**)。**</li>
+<li>process.nextTick分发到微任务队列Event Queue</li>
+<li>setTimeout，其回调函数被分发到宏任务Event Queue（执行规则：从上到下排序，先进先执行）中（回调会在微任务执行后再执行）</li>
+<li>async函数还是基于Promise的一些封装，<strong>async同new Promise</strong>，是同步任务；</li>
+<li><strong>await 同Promise.then</strong> 是微任务，多个await时，等执行第一个awiait后，再将其后面的任务执行添加到队列。 <strong>await 后面一般是promise，如果不是直接返回。await 后面的函数直接按规则执行，如果是promise 就等执行结果得到后，继续执行下面的，这个过程相当于then。</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">4</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>) <span class="comment">// 这儿是最先执行的</span></span><br><span class="line">  <span class="title function_">resolve</span>()</span><br><span class="line">&#125;).<span class="title function_">then</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span>)</span><br><span class="line">&#125;)</span><br><span class="line">conso.<span class="title function_">log</span>(<span class="number">2</span>)</span><br><span class="line"><span class="comment">// 1, 2, 3, 4</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="执行过程："><a href="#执行过程：" class="headerlink" title="执行过程："></a>执行过程：</h3><ul>
+<li>任务进入执行栈，判断是同步还是异步</li>
+<li>同步进入主线程</li>
+<li>异步进入Event Table并注册函数</li>
+</ul>
+<p>任务进入执行栈—-同步任务还是异步任务—-同步的进入主线程，异步的进入Event Table并注册函数。当指定的事情完成时，Event Table会将这个函数移入Event Queue。主线程内的任务执行完毕为空，会去Event Queue读取对应的函数，进入主线程执行。上述过程会不断重复，也就是常说的Event Loop(事件循环)。</p>
+<h2 id="4-如何分析执行顺序"><a href="#4-如何分析执行顺序" class="headerlink" title="4. 如何分析执行顺序"></a>4. 如何分析执行顺序</h2><h3 id="题目1："><a href="#题目1：" class="headerlink" title="题目1："></a>题目1：</h3><p><strong>分析过程：</strong></p>
+<ul>
+<li><strong>先执行同步任务，遇到宏任务放宏任务队列，遇到微任务放到微任务队列。</strong></li>
+<li><strong>主线程执行完一圈后，先执行微任务队列，再执行宏任务。</strong></li>
+</ul>
+<p>（动态修改两个队列：执行到时，增加微任务和宏任务队列；执行后，删掉队列的值）</p>
+<ol>
+<li>区分同步任务、微任务、宏任务</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 同步任务</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;1&#x27;</span>);</span><br><span class="line"><span class="comment">// 宏任务 A</span></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// 同步任务</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;2&#x27;</span>);</span><br><span class="line">  <span class="comment">// 宏任务 B</span></span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">10</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="comment">// 同步任务</span></span><br><span class="line">  <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="keyword">function</span>(<span class="params">resolve</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;3&#x27;</span>);</span><br><span class="line">    <span class="title function_">resolve</span>()</span><br><span class="line">    <span class="comment">// 微任务 A</span></span><br><span class="line">  &#125;).<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;4&#x27;</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 同步任务</span></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="keyword">function</span>(<span class="params">resolve</span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;5&#x27;</span>);</span><br><span class="line">  <span class="comment">// 宏任务 D</span></span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">11</span>)</span><br><span class="line">  &#125;, <span class="number">1000</span>) <span class="comment">// 若此处没有1000毫秒的延迟，则先执行宏任务D，再执行宏任务E</span></span><br><span class="line">  <span class="title function_">resolve</span>(</span><br><span class="line">    <span class="comment">// 宏任务 E</span></span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>)&#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">12</span>)</span><br><span class="line">    &#125;))</span><br><span class="line">  <span class="comment">// 微任务 B</span></span><br><span class="line">&#125;).<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;6&#x27;</span>);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 宏任务 C</span></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="comment">// 同步任务</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;7&#x27;</span>);</span><br><span class="line">  <span class="comment">// 同步任务</span></span><br><span class="line">  <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="keyword">function</span>(<span class="params">resolve</span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;8&#x27;</span>);</span><br><span class="line">    <span class="title function_">resolve</span>()</span><br><span class="line">    <span class="comment">// 微任务 C</span></span><br><span class="line">  &#125;).<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;9&#x27;</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>分别记录宏任务和微任务队列，动态入、出队列</li>
+</ol>
+<ul>
+<li>执行同步任务：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>宏任务：</th>
+<th>mac A,  mic D(1000ms delay), mic E,  mic C,</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>微任务：</td>
+<td>mic B,</td>
+</tr>
+<tr>
+<td>结果：</td>
+<td>1, 5,</td>
+</tr>
+</tbody></table>
+<ul>
+<li>执行微任务B</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>宏任务：</th>
+<th>mac A,  mic D(1000ms delay), mic E,  mic C,</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>微任务：</td>
+<td></td>
+</tr>
+<tr>
+<td>结果：</td>
+<td>1, 5, 6</td>
+</tr>
+</tbody></table>
+<ul>
+<li>执行宏任务A</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>宏任务：</th>
+<th>mic D(1000ms delay), mic E,  mic C, mic B,</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>微任务：</td>
+<td>mic A</td>
+</tr>
+<tr>
+<td>结果：</td>
+<td>1, 5, 6, 2, 3,</td>
+</tr>
+</tbody></table>
+<ul>
+<li>执行微任务A</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>宏任务：</th>
+<th>mic D(1000ms delay), mic E, mic C, mic B,</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>微任务：</td>
+<td></td>
+</tr>
+<tr>
+<td>结果：</td>
+<td>1, 5, 6, 2, 3, 4,</td>
+</tr>
+</tbody></table>
+<ul>
+<li>执行宏任务E</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>宏任务：</th>
+<th>mic D(1000ms delay),  mic C, mic B,</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>微任务：</td>
+<td></td>
+</tr>
+<tr>
+<td>结果：</td>
+<td>1, 5, 6, 2, 3, 4, 12,</td>
+</tr>
+</tbody></table>
+<ul>
+<li>执行宏任C</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>宏任务：</th>
+<th>mic D(1000ms delay), mic B,</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>微任务：</td>
+<td>mic C</td>
+</tr>
+<tr>
+<td>结果：</td>
+<td>1, 5, 6, 2, 3, 4, 12, 7, 8,</td>
+</tr>
+</tbody></table>
+<ul>
+<li>执行微任务C</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>宏任务：</th>
+<th>mic D(1000ms delay), mic B,</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>微任务：</td>
+<td></td>
+</tr>
+<tr>
+<td>结果：</td>
+<td>1, 5, 6, 2, 3, 4,12, 7, 8, 9</td>
+</tr>
+</tbody></table>
+<ul>
+<li>执行宏任B</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>宏任务：</th>
+<th>mic D(1000ms delay),</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>微任务：</td>
+<td></td>
+</tr>
+<tr>
+<td>结果：</td>
+<td>1, 5, 6, 2, 3, 4,12,7, 8, 9, 10</td>
+</tr>
+</tbody></table>
+<ul>
+<li>执行宏任D</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>宏任务：</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>微任务：</td>
+<td></td>
+</tr>
+<tr>
+<td>结果：</td>
+<td>1, 5, 6, 2, 3, 4,12,7, 8, 9, 10, 11</td>
+</tr>
+</tbody></table>
+<h3 id="题目2："><a href="#题目2：" class="headerlink" title="题目2："></a>题目2：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// syn</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">asyFunction</span> () &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2</span>);</span><br><span class="line">  <span class="keyword">await</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span>);</span><br><span class="line">  <span class="keyword">await</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">4</span>); <span class="comment">// 此处要等上一句回调成功后再添加到队列</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">5</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">6</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// syn  直接执行promise的内容！</span></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">10</span>);</span><br><span class="line">  <span class="title function_">resolve</span>();</span><br><span class="line">  <span class="comment">//    mic 1</span></span><br><span class="line">&#125;).<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">11</span>);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// syn</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">7</span>);</span><br><span class="line"><span class="comment">// mac 1</span></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">8</span>)</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"><span class="comment">// mac 2</span></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">9</span>)</span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br><span class="line"><span class="comment">// syn</span></span><br><span class="line"><span class="title function_">asyFunction</span>().<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// mic 3</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(res) <span class="comment">// 此处回调，要等asyFunction的都执行后再添加到队列中</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><img src="/01-%E5%BE%AE%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%AE%8F%E4%BB%BB%E5%8A%A1/1650875287465-c55a9a4f-dc13-4513-98a4-80724ed51837.png" alt="img"></p>
+<h3 id="题目3："><a href="#题目3：" class="headerlink" title="题目3："></a>题目3：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 调用后 syn</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">async1</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>);</span><br><span class="line">  <span class="comment">// async2() 是同步任务 ！！！</span></span><br><span class="line">  <span class="comment">// mic 1；</span></span><br><span class="line">  <span class="keyword">const</span> result = <span class="keyword">await</span> <span class="title function_">async2</span>();</span><br><span class="line">  <span class="comment">// syn</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span>); <span class="comment">// 此句相当于在.then 中的</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">async2</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">resolve</span>().<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// mic 3</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">4</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// mac 1</span></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">5</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// syn</span></span><br><span class="line"><span class="title function_">async1</span>();</span><br><span class="line"><span class="comment">// syn</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">6</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="/01-%E5%BE%AE%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%AE%8F%E4%BB%BB%E5%8A%A1/1650875335099-c4123e74-4156-4c5d-9221-e9f54b86578d.png" alt="img"></p>
+<p><strong>分析过程：</strong></p>
+<ul>
+<li>执行同步任务：（<strong>遇到</strong> <strong>Promise</strong>**.<strong><strong>resolve</strong></strong><em>()*</em>***.**<strong>then 直接执行，虽没有new Promise的同步任务执行，但会将then的微任务挂载到队列中</strong>）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>宏任务：</th>
+<th>mic 3, mic 1,</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>微任务：</td>
+<td>mac 1,</td>
+</tr>
+<tr>
+<td>结果：</td>
+<td>1, 2, 6，</td>
+</tr>
+</tbody></table>
+<hr>
+<p>改写：正确度待定</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 调用后 syn</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">async1</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">const</span> result = <span class="keyword">await</span> <span class="title function_">async2</span>();</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span>); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等价</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">async1</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="keyword">function</span>(<span class="params">resolve</span>)&#123;</span><br><span class="line">    <span class="title function_">async2</span>()</span><br><span class="line">    <span class="title function_">resolve</span>()</span><br><span class="line">  &#125;).<span class="title function_">then</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// or</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">async1</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="title class_">Promise</span>.<span class="title function_">resolve</span>(<span class="title function_">async2</span>()).<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// mic 3</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="todo-不明白？？？"><a href="#todo-不明白？？？" class="headerlink" title="todo 不明白？？？"></a>todo 不明白？？？</h1><p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_32442973/article/details/120070094">https://blog.csdn.net/qq_32442973/article/details/120070094</a></p>
+</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2021-08-27</span><i class="fa fa-tag"></i><a class="tag" href="/tags/JavaScript/" title="JavaScript">JavaScript </a><span class="leancloud_visitors"></span><span>大约2259个字, 7分钟31秒读完</span></div></div></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/">上一页</a></li></ul></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script>(function(window){var INSIGHT_CONFIG={TRANSLATION:{POSTS:"文章",PAGES:"页面",CATEGORIES:"分类",TAGS:"标签",UNTITLED:"(无标题)",},CONTENT_URL:"/content.json",};window.INSIGHT_CONFIG=INSIGHT_CONFIG})(window);</script><script src="/js/insight.js" defer></script><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="想要查找什么..."><span class="searchbox-close"><a class="fa fa-times-circle" onclick="closeWindow();"></a></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"><p>Seraching...</p></div></div></div></div></body></html>

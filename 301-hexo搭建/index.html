@@ -1,0 +1,133 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="chengshuomin"><title>hexo搭建 · Hexo</title><meta name="description" content="1. 创建 hexo 项目1.1 安装 Hexohttps://hexo.io/zh-cn/docs/#%E5%AE%89%E8%A3%85-Hexo
+12# 安装 hexo 手脚架$ npm install -g hexo-cli
+
+1.2  建站（创建 hexo 项目）123456# 创建项目 "><meta name="keywords" content="Blog,博客,chengshuomin"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon1.svg"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.1.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a href="/">首页</a></li><li> <a href="/archives">归档</a></li><li> <a href="/tags">标签</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/logo.jpg"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/title.svg" style="width:200px;" alt="favicon"><h3 title=""><a href="/">Hexo</a></h3><div class="description"><p>chengshuomin blog</p></div></div><ul class="social-links"></ul></div></div><div class="footer"><div class="p"><span> 全站 CC-BY-SA-3.0</span><i class="fa fa-star"></i><span> chengshuomin</span></div><div class="by_farbox"><span>Powered by</span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo</a><span> &</span><span>Anatolo</span></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>hexo搭建</a></h3></div><div class="post-content"><p><h2 id="1-创建-hexo-项目"><a href="#1-创建-hexo-项目" class="headerlink" title="1. 创建 hexo 项目"></a>1. 创建 hexo 项目</h2><h3 id="1-1-安装-Hexo"><a href="#1-1-安装-Hexo" class="headerlink" title="1.1 安装 Hexo"></a>1.1 安装 Hexo</h3><p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/#%E5%AE%89%E8%A3%85-Hexo">https://hexo.io/zh-cn/docs/#%E5%AE%89%E8%A3%85-Hexo</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 安装 hexo 手脚架</span><br><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-建站（创建-hexo-项目）"><a href="#1-2-建站（创建-hexo-项目）" class="headerlink" title="1.2  建站（创建 hexo 项目）"></a>1.2  建站（创建 hexo 项目）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 创建项目 &lt;folder&gt;</span><br><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">  </span><br><span class="line"># 安装项目依赖  </span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+
+
+
+<p>新建完成后，指定文件夹的目录如下：</p>
+<p>. ├── _config.yml  &#x2F;&#x2F; hexo 项目主要的配置文件 ├── package.json ├── scaffolds   &#x2F;&#x2F; 存放新建blog的模板 ├── source   &#x2F;&#x2F; blog 文件源 |   ├── _drafts |   └── _posts &#x2F;&#x2F; 最常用穿件的blog存放位置 └── themes  &#x2F;&#x2F; blog 主题包</p>
+<p><img src="/301-hexo%E6%90%AD%E5%BB%BA/1651791606534-8e89bb3d-10d1-42ae-991a-3cb0309c962e-20220820211106224.png" alt="img"></p>
+<h3 id="1-3-预览网站"><a href="#1-3-预览网站" class="headerlink" title="1.3 预览网站"></a>1.3 预览网站</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p><img src="/301-hexo%E6%90%AD%E5%BB%BA/1651791772412-82774cdc-c583-49ed-813e-bd89f252a8c3-20220820211106832.png" alt="img"></p>
+<h2 id="目录-默认文件结构"><a href="#目录-默认文件结构" class="headerlink" title="目录(默认文件结构)"></a>目录(默认文件结构)</h2><table>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>描述</strong></th>
+<th><strong>默认值</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>source_dir</td>
+<td>资源文件夹，这个文件夹用来存放内容。</td>
+<td>source</td>
+</tr>
+<tr>
+<td>public_dir</td>
+<td>公共文件夹，这个文件夹用于存放生成的站点文件。</td>
+<td>public</td>
+</tr>
+<tr>
+<td>tag_dir</td>
+<td>标签文件夹</td>
+<td>tags</td>
+</tr>
+<tr>
+<td>archive_dir</td>
+<td>归档文件夹</td>
+<td>archives</td>
+</tr>
+<tr>
+<td>category_dir</td>
+<td>分类文件夹</td>
+<td>categories</td>
+</tr>
+<tr>
+<td>code_dir</td>
+<td>Include code 文件夹，source_dir 下的子目录</td>
+<td>downloads&#x2F;code</td>
+</tr>
+<tr>
+<td>i18n_dir</td>
+<td>国际化（i18n）文件夹</td>
+<td>:lang</td>
+</tr>
+<tr>
+<td>skip_render</td>
+<td>跳过指定文件的渲染。匹配到的文件将会被不做改动地复制到 public 目录中。您可使用 <a target="_blank" rel="noopener" href="https://github.com/micromatch/micromatch#extended-globbing">glob 表达式</a>来匹配路径。</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="1-4-主题修改"><a href="#1-4-主题修改" class="headerlink" title="1.4 主题修改"></a>1.4 主题修改</h3><p>在 <a target="_blank" rel="noopener" href="https://hexo.io/themes/">https://hexo.io/themes/</a> 可以寻找喜欢的主题进行安装。</p>
+<p>如：安装 anatole 主题：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://gitee.com/Lhcfl/hexo-theme-anatolo.git themes/Anatolo</span><br></pre></td></tr></table></figure>
+
+<p>安装依赖</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-pug --save</span><br><span class="line">npm install hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
+
+<p>安装成功后（在 theme 文件夹下新增一个皮肤包），修改 <code>_config.yml</code>  的配置 ：</p>
+<h2 id="2-创建文章"><a href="#2-创建文章" class="headerlink" title="2. 创建文章"></a>2. 创建文章</h2><h3 id="2-1-创建文章"><a href="#2-1-创建文章" class="headerlink" title="2.1 创建文章"></a>2.1 创建文章</h3><p>默认创建 post 类型 <code>.md</code>文章（文件名默认为<code>.md</code>，文件名无需加 后缀）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo <span class="keyword">new</span> [layout] &lt;title&gt;</span><br><span class="line"></span><br><span class="line"># 简便创建，默认layout 为 post</span><br><span class="line">$ hexo <span class="keyword">new</span> &lt;title&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-创建有图片等资源的文件"><a href="#2-2-创建有图片等资源的文件" class="headerlink" title="2.2 创建有图片等资源的文件"></a>2.2 创建有图片等资源的文件</h3><h4 id="2-2-1-修改-post-asset-folder"><a href="#2-2-1-修改-post-asset-folder" class="headerlink" title="2.2.1 修改  post_asset_folder"></a>2.2.1 修改  <code>post_asset_folder</code></h4><p>修改 <code>_config.yml</code>  中 <code>post_asset_folder</code>配置为 <code>true</code>，然后正常创建文章，便会在<code>A.md</code>文章同层多一个<code>A</code>同名文件夹。</p>
+<p>图片路径就直接写即可，相当于 <strong>图片和文章在同一层级</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">post_asset_folder</span>: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/301-hexo%E6%90%AD%E5%BB%BA/1651793328430-c8aeb32c-1354-495c-bbcf-b8732792058e-20220820211106320.jpeg" alt="img"></p>
+<h4 id="2-2-2-安装插件-hexo-renderer-marked"><a href="#2-2-2-安装插件-hexo-renderer-marked" class="headerlink" title="2.2.2 安装插件 hexo-renderer-marked"></a>2.2.2 安装插件 <code>hexo-renderer-marked</code></h4><p>用于 Markdown 解析和渲染的插件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-marked</span><br></pre></td></tr></table></figure>
+
+
+
+<p>修改 <code>_config.yml</code> 配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: true</span><br><span class="line">marked:</span><br><span class="line">  prependRoot: true</span><br><span class="line">  postAsset: true</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-3-创建按照年份分类的文章-（此方式暂不可行，会导致图片无法显示）"><a href="#2-3-创建按照年份分类的文章-（此方式暂不可行，会导致图片无法显示）" class="headerlink" title="2.3 创建按照年份分类的文章 （此方式暂不可行，会导致图片无法显示）"></a>2.3 创建按照年份分类的文章 （此方式暂不可行，会导致图片无法显示）</h3><h4 id="有解决方案的欢迎指点"><a href="#有解决方案的欢迎指点" class="headerlink" title="有解决方案的欢迎指点~"></a>有解决方案的欢迎指点~</h4><p>如果直接创建文章，则默认在 <code>source/_post</code> 文件夹下排排放，修改如下配置后，则可以按创建年份将文章分类到不同文件夹下。</p>
+<p>修改 <code>_config.yml</code>  ：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 保持不变</span><br><span class="line"><span class="attr">permalink</span>: :year/:month/:day/:title/</span><br><span class="line"></span><br><span class="line"># 修改 new_post_name</span><br><span class="line"><span class="attr">new_post_name</span>: :year/:title.<span class="property">md</span> </span><br></pre></td></tr></table></figure>
+
+<h3 id=""><a href="#" class="headerlink" title=""></a><img src="/301-hexo%E6%90%AD%E5%BB%BA/1651793466575-2ec9fc1c-8456-4f1f-8295-80fafa9fc221-20220820211106393.png" alt="img"></h3><h3 id="2-4-首页显示部分文章"><a href="#2-4-首页显示部分文章" class="headerlink" title="2.4 首页显示部分文章"></a>2.4 首页显示部分文章</h3><p>在需要显示后加此句，截断首页显示：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--more--&gt; </span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-Github-Action-部署项目"><a href="#3-Github-Action-部署项目" class="headerlink" title="3. Github Action 部署项目"></a>3. Github Action 部署项目</h2><h3 id="3-1-github-新建仓库"><a href="#3-1-github-新建仓库" class="headerlink" title="3.1 github 新建仓库"></a>3.1 github 新建仓库</h3><ul>
+<li>在github 上新建仓库，仓库名为 <code>&#123;userName&#125;.github.io</code>， userName就是github的用户名</li>
+<li>创建成功后，复制仓库http的地址</li>
+</ul>
+<h3 id="3-2-部署"><a href="#3-2-部署" class="headerlink" title="3.2 部署"></a>3.2 部署</h3><ul>
+<li>安装部署插件</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 安装部署插件</span></span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>修改 <code>_config.yml</code>  配置</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy</span>:</span><br><span class="line">  <span class="attr">type</span>: git</span><br><span class="line">  <span class="attr">repo</span>: <span class="attr">https</span>:<span class="comment">//github.com/SummerOrange/SummerOrange.github.io</span></span><br><span class="line">  <span class="attr">branch</span>: master</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>部署命令</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br><span class="line"></span><br><span class="line"># 简写</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+
+<p>部署完成后，使用仓库名<code>https://summerorange.github.io/</code>即可访问blog。</p>
+<h3 id="3-3-如果部署后未修改，可以在github的Actions中查看自动build-run-的情况。"><a href="#3-3-如果部署后未修改，可以在github的Actions中查看自动build-run-的情况。" class="headerlink" title="3.3 如果部署后未修改，可以在github的Actions中查看自动build , run 的情况。"></a>3.3 如果部署后未修改，可以在github的Actions中查看自动build , run 的情况。</h3><p><img src="/301-hexo%E6%90%AD%E5%BB%BA/1651854012322-e6c0a9e2-5036-4d65-b9e5-f717d5cd8ca2-20220820211106443.png" alt="img"></p>
+<h3 id="3-4-部署报错"><a href="#3-4-部署报错" class="headerlink" title="3.4 部署报错"></a>3.4 部署报错</h3><p>若 <code>hexo d</code>后报类似错：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">fatal</span>: unable to access <span class="string">&#x27;https://.../&#x27;</span>: <span class="title class_">Encountered</span> end <span class="keyword">of</span> file</span><br><span class="line"><span class="variable constant_">FATAL</span> &#123;</span><br><span class="line">  <span class="attr">err</span>: <span class="title class_">Error</span>: <span class="title class_">Spawn</span> failed</span><br><span class="line">      at <span class="title class_">ChildProcess</span>.&lt;anonymous&gt; (<span class="regexp">/.../</span>lib/spawn.<span class="property">js</span>:<span class="number">51</span>:<span class="number">21</span>)</span><br><span class="line">      at <span class="title class_">ChildProcess</span>.<span class="property">emit</span> (events.<span class="property">js</span>:<span class="number">376</span>:<span class="number">20</span>)</span><br><span class="line">      at <span class="title class_">Process</span>.<span class="property">ChildProcess</span>.<span class="property">_handle</span>.<span class="property">onexit</span> (internal/child_process.<span class="property">js</span>:<span class="number">277</span>:<span class="number">12</span>) &#123;</span><br><span class="line">    <span class="attr">code</span>: <span class="number">128</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>解决方案：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 在项目的根目录下操作如下：</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">rm</span> -rf .deploy_git/</span><br><span class="line"></span><br><span class="line">git config --global core.autocrlf <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-导入有图片的-md已有-blog-小技巧"><a href="#4-导入有图片的-md已有-blog-小技巧" class="headerlink" title="4. 导入有图片的.md已有 blog 小技巧"></a>4. 导入有图片的<code>.md</code>已有 blog 小技巧</h2><h3 id="借助-Typora"><a href="#借助-Typora" class="headerlink" title="借助 Typora"></a><strong>借助 Typora</strong></h3><p>如果已经在在线笔记类似工具中存有<code>.md</code>文章，如果有图片，一个个下载图改路径，是个苦力活。</p>
+<p>可以借助 Typora，先在“偏好设置”中配置，图像 - 对网络位置的图片应用上述规则，配置如下：</p>
+<p><img src="/301-hexo%E6%90%AD%E5%BB%BA/1652026396145-80fff01d-d2bf-442d-b579-feadc44bf230-20220820211106406.png" alt="img"></p>
+<p>配置好后，通过hexo新建好空文档，在 Typora 中将文章直接ctrl + v ，然后将根目录下的图片资源移动到文章对应的文件夹下。</p>
+<p>PS：因为hexo中，md 中写的图片路径直接就是图片名称，所以此处配置，不能写<code>./$&#123;filename&#125;</code></p>
+</p><div class="tip">本文采用 CC-BY-SA-3.0 协议，转载请注明出处<br>作者: chengshuomin</div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2021-11-08</span><i class="fa fa-tag"></i><a class="tag" href="/tags/综合/" title="综合">综合 </a><span class="leancloud_visitors"></span><span>大约1168个字, 3分钟53秒读完</span></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="" onclick="javascript:join_favorite()" ref="sidebar"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,http://example.com/301-hexo搭建/,Hexo,hexo搭建,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/101-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0%E5%85%A5%E5%8F%A3/" title="源码学习入口">上一篇</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/401-Promise/" title="Promise">下一篇</a></li></ul></div><script src="/js/visitors.js"></script></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script>(function(window){var INSIGHT_CONFIG={TRANSLATION:{POSTS:"文章",PAGES:"页面",CATEGORIES:"分类",TAGS:"标签",UNTITLED:"(无标题)",},CONTENT_URL:"/content.json",};window.INSIGHT_CONFIG=INSIGHT_CONFIG})(window);</script><script src="/js/insight.js" defer></script><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="想要查找什么..."><span class="searchbox-close"><a class="fa fa-times-circle" onclick="closeWindow();"></a></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"><p>Seraching...</p></div></div></div></div></body></html>
