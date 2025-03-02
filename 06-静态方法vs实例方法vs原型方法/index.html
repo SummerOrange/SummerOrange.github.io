@@ -35,7 +35,7 @@
     <script class="keep-theme-configurations">
     const KEEP = window.KEEP || {}
     KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-cn"}
-    KEEP.theme_config = {"base_info":{"primary_color":"#d5c4f2","title":"学习笔记","author":"ChengShuomin","avatar":"/images/avatar.svg","logo":"/images/logo.svg","favicon":"/images/favicon.svg"},"menu":{"home":"/","archives":"/archives","tags":"/tags","categories":"/categories"},"first_screen":{"enable":true,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":true,"percent":true,"hide_header":true},"home":{"announcement":null,"category":false,"tag":false},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD","copyright_info":true,"share":true,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"toc":{"enable":false,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.39"},"waline":{"server_url":null,"reaction":false,"version":"3.3.2"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":false},"footer":{"since":2021,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.2.5"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#d5c4f2","title":"学习笔记","author":"ChengShuomin","avatar":"/images/avatar.svg","logo":"/images/logo.svg","favicon":"/images/favicon.svg"},"menu":{"home":"/","archives":"/archives"},"first_screen":{"enable":true,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"♚ 今天不走，明天要跑 ♚ || 走过的路，每一步都算数","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":true,"percent":true,"hide_header":true},"language":"zh-CN","home":{"announcement":null,"category":false,"tag":false},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD","copyright_info":true,"share":true,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"toc":{"enable":false,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.39"},"waline":{"server_url":null,"reaction":false,"version":"3.3.2"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":false},"footer":{"since":2021,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.2.5"}
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
     KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
     KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
@@ -100,26 +100,6 @@
                             
                         </li>
                     
-                        
-                        <li class="menu-item flex-start border-box">
-                            <a class="menu-text-color border-box" href="/tags">
-                                
-                                TAGS
-                                
-                            </a>
-                            
-                        </li>
-                    
-                        
-                        <li class="menu-item flex-start border-box">
-                            <a class="menu-text-color border-box" href="/categories">
-                                
-                                CATEGORIES
-                                
-                            </a>
-                            
-                        </li>
-                    
                     
                 </ul>
             </div>
@@ -153,30 +133,6 @@
                         <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
                             
                             ARCHIVES
-                        </a>
-                        
-                    </label>
-                    
-                </li>
-            
-                
-                <li class="drawer-menu-item border-box not-sub-menu">
-                    <label class="drawer-menu-label border-box">
-                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/tags">
-                            
-                            TAGS
-                        </a>
-                        
-                    </label>
-                    
-                </li>
-            
-                
-                <li class="drawer-menu-item border-box not-sub-menu">
-                    <label class="drawer-menu-label border-box">
-                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/categories">
-                            
-                            CATEGORIES
                         </a>
                         
                     </label>
@@ -241,7 +197,7 @@
 <!--            -->
 <!--                <span class="meta-info-item post-update-date">-->
 <!--                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;-->
-<!--                    <span class="datetime" data-updated="Thu Feb 13 2025 21:49:56 GMT+0800">2025-02-13</span>-->
+<!--                    <span class="datetime" data-updated="Sun Mar 02 2025 21:23:58 GMT+0800">2025-03-02</span>-->
 <!--                </span>-->
 <!--            -->
         
@@ -277,11 +233,9 @@
                     
 
                     
-                         <h4 id="例子对比："><a href="#例子对比：" class="headerlink" title="例子对比："></a>例子对比：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 构造函数</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Person</span> = <span class="keyword">function</span>(<span class="params">name</span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;初始化构造函数&#x27;</span>)</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 构造函数内的方法</span></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">getName</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;调用构造函数内的方法&#x27;</span>)</span><br><span class="line">    <span class="comment">// return name</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 静态方法</span></span><br><span class="line"><span class="title class_">Person</span>.<span class="property">staticFunc</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;调用静态方法&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 原型方法</span></span><br><span class="line"><span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">protoFunc</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;调用原型方法&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实例对象</span></span><br><span class="line"><span class="keyword">let</span> p1 = <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&#x27;Luna&#x27;</span>) <span class="comment">// 输出： 初始化构造函数</span></span><br><span class="line"></span><br><span class="line">p1.<span class="title function_">getName</span>()  <span class="comment">// 输出：  调用构造函数内的方法</span></span><br><span class="line">p1.<span class="title function_">protoFunc</span>() <span class="comment">// 输出： 调用原型方法</span></span><br><span class="line">p1.<span class="property">staticFunc</span> <span class="comment">// 输出： undefined</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Person</span>.<span class="property">getName</span> <span class="comment">// 输出： undefined </span></span><br><span class="line"><span class="title class_">Person</span>.<span class="property">protoFunc</span> <span class="comment">// 输出： undefined</span></span><br><span class="line"><span class="title class_">Person</span>.<span class="title function_">staticFunc</span>() <span class="comment">// 输出： 调用静态方法</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h3><p><strong>static</strong> 关键字定义了<a class="link" target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes#%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E5%92%8C%E5%AD%97%E6%AE%B5">静态方法或字段<i class="fas fa-external-link-alt"></i></a>，或<a class="link" target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks">静态初始化块<i class="fas fa-external-link-alt"></i></a>（有关这种用法的更多信息，请参阅链接）。<strong>静态属性不能在类的实例上直接访问</strong>。相反，它们是<strong>在类本身上被访问</strong>的。</p>
+                         <h3 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h3><p><strong>static</strong> 关键字定义了<a class="link" target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes#%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E5%92%8C%E5%AD%97%E6%AE%B5">静态方法或字段<i class="fas fa-external-link-alt"></i></a>，或<a class="link" target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks">静态初始化块<i class="fas fa-external-link-alt"></i></a>（有关这种用法的更多信息，请参阅链接）。<strong>静态属性不能在类的实例上直接访问</strong>。相反，它们是<strong>在类本身上被访问</strong>的。</p>
 <p>静态方法通常是实用函数，如创建或克隆对象的函数，而静态属性则适用于缓存、固定配置或其他不需要跨实例复制的数据。</p>
-<p><strong>当你希望一个字段在每个类中只存在一次，而不是在你创建的每个类实例中都存在时，公有静态字段就很有用。</strong>这对缓存、固定配置或其他不需要在实例间复制的数据非常有用。</p>
+<p><strong>当你希望一个字段在每个类中只存在一次，而不是在你创建的每个类实例中都存在时，公有静态字段就很有用</strong>。这对缓存、固定配置或其他不需要在实例间复制的数据非常有用。</p>
 <h3 id="构造函数："><a href="#构造函数：" class="headerlink" title="构造函数："></a>构造函数：</h3><p>构造函数的特点有两个。</p>
 <ul>
 <li>函数体内部使用了this关键字，代表了所要生成的对象实例。</li>
@@ -292,6 +246,8 @@
 <p><strong>实例之间共享prototype上的属性和方法。</strong></p>
 <h4 id="共享而非复制"><a href="#共享而非复制" class="headerlink" title="共享而非复制"></a>共享而非复制</h4><p>通过将方法和属性定义在prototype上，所有的实例都会共享这些属性和方法，而不是在每个实例创建时复制一份。这意味着无论创建多少个实例，它们都使用同一个方法的引用，这有助于减少脚本的内存使用量。</p>
 <h4 id="减少内存使用，优化性能"><a href="#减少内存使用，优化性能" class="headerlink" title="减少内存使用，优化性能"></a>减少内存使用，优化性能</h4><p>当实例需要访问构造函数原型上的属性或方法时，它们会通过原型链来进行查找。这种查找机制相比于在每个对象实例中存储自己的副本要高效得多，因为它避免了不必要的内存浪费，从而提高程序运行的性能。</p>
+<h3 id="例子对比："><a href="#例子对比：" class="headerlink" title="例子对比："></a>例子对比：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 构造函数</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Person</span> = <span class="keyword">function</span>(<span class="params">name</span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;初始化构造函数&#x27;</span>)</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 构造函数内的方法</span></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">getName</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;调用构造函数内的方法&#x27;</span>)</span><br><span class="line">    <span class="comment">// return name</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 静态方法</span></span><br><span class="line"><span class="title class_">Person</span>.<span class="property">staticFunc</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;调用静态方法&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 原型方法</span></span><br><span class="line"><span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">protoFunc</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;调用原型方法&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实例对象</span></span><br><span class="line"><span class="keyword">let</span> p1 = <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&#x27;Luna&#x27;</span>) <span class="comment">// 输出： 初始化构造函数</span></span><br><span class="line"></span><br><span class="line">p1.<span class="title function_">getName</span>()  <span class="comment">// 输出：  调用构造函数内的方法</span></span><br><span class="line">p1.<span class="title function_">protoFunc</span>() <span class="comment">// 输出： 调用原型方法</span></span><br><span class="line">p1.<span class="property">staticFunc</span> <span class="comment">// 输出： undefined</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Person</span>.<span class="property">getName</span> <span class="comment">// 输出： undefined </span></span><br><span class="line"><span class="title class_">Person</span>.<span class="property">protoFunc</span> <span class="comment">// 输出： undefined</span></span><br><span class="line"><span class="title class_">Person</span>.<span class="title function_">staticFunc</span>() <span class="comment">// 输出： 调用静态方法</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><ol>
 <li><strong>实例对象</strong>可以调用的方法：<strong>构造函数内的方法、原型方法；</strong></li>
 <li><strong>构造函数</strong>可以调用的方法：<strong>静态方法；</strong></li>

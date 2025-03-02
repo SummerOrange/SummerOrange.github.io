@@ -110,7 +110,7 @@ figure.highlight .shrink-line {
   cursor: pointer;
 }
 figure.highlight .shrink-line::before {
-  color: var(--text-color-4);
+  color: #cea6c8;
   font-weight: 600;
   font-size: 1rem;
   font-family: 'Font Awesome 6 Free';

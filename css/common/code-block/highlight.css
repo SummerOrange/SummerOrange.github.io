@@ -17,11 +17,11 @@
   --highlight-deletion: #fdd;
   --highlight-addition: #dfd;
   --highlight-gutter-color: #585865;
-  --highlight-gutter-bg-color: #f2f2f2;
+  --highlight-gutter-bg-color: #e8e2f1;
   --mac-toolbar-background-color: #21252b;
   --shrink-line-foreground: #808091;
-  --shrink-line-background-1: rgba(210,210,210,0.9);
-  --shrink-line-background-2: rgba(225,225,225,0.6);
+  --shrink-line-background-1: rgba(250,250,250,0.9);
+  --shrink-line-background-2: rgba(232,226,241,0.64);
 }
 @media (prefers-color-scheme: light) {
   :root {
@@ -43,11 +43,11 @@
     --highlight-deletion: #fdd;
     --highlight-addition: #dfd;
     --highlight-gutter-color: #585865;
-    --highlight-gutter-bg-color: #f2f2f2;
+    --highlight-gutter-bg-color: #e8e2f1;
     --mac-toolbar-background-color: #21252b;
     --shrink-line-foreground: #808091;
-    --shrink-line-background-1: rgba(210,210,210,0.9);
-    --shrink-line-background-2: rgba(225,225,225,0.6);
+    --shrink-line-background-1: rgba(250,250,250,0.9);
+    --shrink-line-background-2: rgba(232,226,241,0.64);
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -96,11 +96,11 @@
   --highlight-deletion: #fdd;
   --highlight-addition: #dfd;
   --highlight-gutter-color: #585865;
-  --highlight-gutter-bg-color: #f2f2f2;
+  --highlight-gutter-bg-color: #e8e2f1;
   --mac-toolbar-background-color: #21252b;
   --shrink-line-foreground: #808091;
-  --shrink-line-background-1: rgba(210,210,210,0.9);
-  --shrink-line-background-2: rgba(225,225,225,0.6);
+  --shrink-line-background-1: rgba(250,250,250,0.9);
+  --shrink-line-background-2: rgba(232,226,241,0.64);
 }
 .dark-mode {
   --toolbar-foreground: #adbac5;

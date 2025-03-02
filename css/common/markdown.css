@@ -139,7 +139,6 @@
   box-sizing: border-box;
   padding-top: 0.4rem;
   padding-bottom: 0.2rem;
-  overflow: hidden;
   color: var(--text-color-2);
   line-height: 1.7;
   border-bottom: 1px solid var(--post-h-bottom-border-color);
@@ -202,7 +201,7 @@ keep-mobile()
   margin-left: 0.4rem;
   padding-top: 0.2rem;
   color: var(--text-color-4);
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-decoration: none;
   border: none;
   visibility: hidden;
@@ -260,11 +259,39 @@ keep-mobile()
   font-weight: 600;
   font-family: 'Font Awesome 6 Free';
   content: '\f0c1';
+  position: absolute;
+  left: -1.65rem;
+}
+.keep-markdown-body h1 a.headerlink:hover::before,
+.keep-markdown-body > .post h1 a.headerlink:hover::before,
+.keep-markdown-body h2 a.headerlink:hover::before,
+.keep-markdown-body > .post h2 a.headerlink:hover::before,
+.keep-markdown-body h3 a.headerlink:hover::before,
+.keep-markdown-body > .post h3 a.headerlink:hover::before,
+.keep-markdown-body h4 a.headerlink:hover::before,
+.keep-markdown-body > .post h4 a.headerlink:hover::before,
+.keep-markdown-body h5 a.headerlink:hover::before,
+.keep-markdown-body > .post h5 a.headerlink:hover::before,
+.keep-markdown-body h6 a.headerlink:hover::before,
+.keep-markdown-body > .post h6 a.headerlink:hover::before,
+.keep-markdown-body h1 a.markdownIt-Anchor:hover::before,
+.keep-markdown-body > .post h1 a.markdownIt-Anchor:hover::before,
+.keep-markdown-body h2 a.markdownIt-Anchor:hover::before,
+.keep-markdown-body > .post h2 a.markdownIt-Anchor:hover::before,
+.keep-markdown-body h3 a.markdownIt-Anchor:hover::before,
+.keep-markdown-body > .post h3 a.markdownIt-Anchor:hover::before,
+.keep-markdown-body h4 a.markdownIt-Anchor:hover::before,
+.keep-markdown-body > .post h4 a.markdownIt-Anchor:hover::before,
+.keep-markdown-body h5 a.markdownIt-Anchor:hover::before,
+.keep-markdown-body > .post h5 a.markdownIt-Anchor:hover::before,
+.keep-markdown-body h6 a.markdownIt-Anchor:hover::before,
+.keep-markdown-body > .post h6 a.markdownIt-Anchor:hover::before {
+  color: var(--primary-color);
 }
 .keep-markdown-body h1,
 .keep-markdown-body > .post h1 {
   font-weight: 600;
-  font-size: 1.68rem;
+  font-size: 1.62rem;
 keep-tablet()
 keep-mobile()
 }
@@ -272,12 +299,12 @@ keep-mobile()
 .keep-markdown-body > .post h1 a.headerlink,
 .keep-markdown-body h1 a.markdownIt-Anchor,
 .keep-markdown-body > .post h1 a.markdownIt-Anchor {
-  font-size: 1.344rem;
+  font-size: 1.296rem;
 }
 .keep-markdown-body h2,
 .keep-markdown-body > .post h2 {
   font-weight: 600;
-  font-size: 1.6rem;
+  font-size: 1.56rem;
 keep-tablet()
 keep-mobile()
 }
@@ -285,7 +312,7 @@ keep-mobile()
 .keep-markdown-body > .post h2 a.headerlink,
 .keep-markdown-body h2 a.markdownIt-Anchor,
 .keep-markdown-body > .post h2 a.markdownIt-Anchor {
-  font-size: 1.28rem;
+  font-size: 1.248rem;
 }
 .keep-markdown-body h3,
 .keep-markdown-body > .post h3 {

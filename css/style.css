@@ -934,7 +934,6 @@ img[lazyload]::after {
   box-sizing: border-box;
   padding-top: 0.4rem;
   padding-bottom: 0.2rem;
-  overflow: hidden;
   color: var(--text-color-2);
   line-height: 1.7;
   border-bottom: 1px solid var(--post-h-bottom-border-color);
@@ -1027,7 +1026,7 @@ img[lazyload]::after {
   margin-left: 0.4rem;
   padding-top: 0.2rem;
   color: var(--text-color-4);
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-decoration: none;
   border: none;
   visibility: hidden;
@@ -1085,52 +1084,80 @@ img[lazyload]::after {
   font-weight: 600;
   font-family: 'Font Awesome 6 Free';
   content: '\f0c1';
+  position: absolute;
+  left: -1.65rem;
+}
+.keep-markdown-body h1 a.headerlink:hover::before,
+.keep-markdown-body > .post h1 a.headerlink:hover::before,
+.keep-markdown-body h2 a.headerlink:hover::before,
+.keep-markdown-body > .post h2 a.headerlink:hover::before,
+.keep-markdown-body h3 a.headerlink:hover::before,
+.keep-markdown-body > .post h3 a.headerlink:hover::before,
+.keep-markdown-body h4 a.headerlink:hover::before,
+.keep-markdown-body > .post h4 a.headerlink:hover::before,
+.keep-markdown-body h5 a.headerlink:hover::before,
+.keep-markdown-body > .post h5 a.headerlink:hover::before,
+.keep-markdown-body h6 a.headerlink:hover::before,
+.keep-markdown-body > .post h6 a.headerlink:hover::before,
+.keep-markdown-body h1 a.markdownIt-Anchor:hover::before,
+.keep-markdown-body > .post h1 a.markdownIt-Anchor:hover::before,
+.keep-markdown-body h2 a.markdownIt-Anchor:hover::before,
+.keep-markdown-body > .post h2 a.markdownIt-Anchor:hover::before,
+.keep-markdown-body h3 a.markdownIt-Anchor:hover::before,
+.keep-markdown-body > .post h3 a.markdownIt-Anchor:hover::before,
+.keep-markdown-body h4 a.markdownIt-Anchor:hover::before,
+.keep-markdown-body > .post h4 a.markdownIt-Anchor:hover::before,
+.keep-markdown-body h5 a.markdownIt-Anchor:hover::before,
+.keep-markdown-body > .post h5 a.markdownIt-Anchor:hover::before,
+.keep-markdown-body h6 a.markdownIt-Anchor:hover::before,
+.keep-markdown-body > .post h6 a.markdownIt-Anchor:hover::before {
+  color: var(--primary-color);
 }
 .keep-markdown-body h1,
 .keep-markdown-body > .post h1 {
   font-weight: 600;
-  font-size: 1.68rem;
+  font-size: 1.62rem;
 }
 @media (max-width: 800px) {
   .keep-markdown-body h1,
   .keep-markdown-body > .post h1 {
-    font-size: 1.512rem;
+    font-size: 1.458rem;
   }
 }
 @media (max-width: 500px) {
   .keep-markdown-body h1,
   .keep-markdown-body > .post h1 {
-    font-size: 1.344rem;
+    font-size: 1.296rem;
   }
 }
 .keep-markdown-body h1 a.headerlink,
 .keep-markdown-body > .post h1 a.headerlink,
 .keep-markdown-body h1 a.markdownIt-Anchor,
 .keep-markdown-body > .post h1 a.markdownIt-Anchor {
-  font-size: 1.344rem;
+  font-size: 1.296rem;
 }
 .keep-markdown-body h2,
 .keep-markdown-body > .post h2 {
   font-weight: 600;
-  font-size: 1.6rem;
+  font-size: 1.56rem;
 }
 @media (max-width: 800px) {
   .keep-markdown-body h2,
   .keep-markdown-body > .post h2 {
-    font-size: 1.44rem;
+    font-size: 1.404rem;
   }
 }
 @media (max-width: 500px) {
   .keep-markdown-body h2,
   .keep-markdown-body > .post h2 {
-    font-size: 1.28rem;
+    font-size: 1.248rem;
   }
 }
 .keep-markdown-body h2 a.headerlink,
 .keep-markdown-body > .post h2 a.headerlink,
 .keep-markdown-body h2 a.markdownIt-Anchor,
 .keep-markdown-body > .post h2 a.markdownIt-Anchor {
-  font-size: 1.28rem;
+  font-size: 1.248rem;
 }
 .keep-markdown-body h3,
 .keep-markdown-body > .post h3 {
@@ -1319,11 +1346,11 @@ img[lazyload]::after {
   --highlight-deletion: #fdd;
   --highlight-addition: #dfd;
   --highlight-gutter-color: #585865;
-  --highlight-gutter-bg-color: #f2f2f2;
+  --highlight-gutter-bg-color: #e8e2f1;
   --mac-toolbar-background-color: #21252b;
   --shrink-line-foreground: #808091;
-  --shrink-line-background-1: rgba(210,210,210,0.9);
-  --shrink-line-background-2: rgba(225,225,225,0.6);
+  --shrink-line-background-1: rgba(250,250,250,0.9);
+  --shrink-line-background-2: rgba(232,226,241,0.64);
 }
 @media (prefers-color-scheme: light) {
   :root {
@@ -1345,11 +1372,11 @@ img[lazyload]::after {
     --highlight-deletion: #fdd;
     --highlight-addition: #dfd;
     --highlight-gutter-color: #585865;
-    --highlight-gutter-bg-color: #f2f2f2;
+    --highlight-gutter-bg-color: #e8e2f1;
     --mac-toolbar-background-color: #21252b;
     --shrink-line-foreground: #808091;
-    --shrink-line-background-1: rgba(210,210,210,0.9);
-    --shrink-line-background-2: rgba(225,225,225,0.6);
+    --shrink-line-background-1: rgba(250,250,250,0.9);
+    --shrink-line-background-2: rgba(232,226,241,0.64);
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -1398,11 +1425,11 @@ img[lazyload]::after {
   --highlight-deletion: #fdd;
   --highlight-addition: #dfd;
   --highlight-gutter-color: #585865;
-  --highlight-gutter-bg-color: #f2f2f2;
+  --highlight-gutter-bg-color: #e8e2f1;
   --mac-toolbar-background-color: #21252b;
   --shrink-line-foreground: #808091;
-  --shrink-line-background-1: rgba(210,210,210,0.9);
-  --shrink-line-background-2: rgba(225,225,225,0.6);
+  --shrink-line-background-1: rgba(250,250,250,0.9);
+  --shrink-line-background-2: rgba(232,226,241,0.64);
 }
 .dark-mode {
   --toolbar-foreground: #adbac5;
@@ -1741,7 +1768,7 @@ figure.highlight .shrink-line {
   cursor: pointer;
 }
 figure.highlight .shrink-line::before {
-  color: var(--text-color-4);
+  color: #cea6c8;
   font-weight: 600;
   font-size: 1rem;
   font-family: 'Font Awesome 6 Free';
@@ -1769,11 +1796,11 @@ figure.highlight .shrink-line:hover::before {
   --highlight-deletion: #fdd;
   --highlight-addition: #dfd;
   --highlight-gutter-color: #585865;
-  --highlight-gutter-bg-color: #f2f2f2;
+  --highlight-gutter-bg-color: #e8e2f1;
   --mac-toolbar-background-color: #21252b;
   --shrink-line-foreground: #808091;
-  --shrink-line-background-1: rgba(210,210,210,0.9);
-  --shrink-line-background-2: rgba(225,225,225,0.6);
+  --shrink-line-background-1: rgba(250,250,250,0.9);
+  --shrink-line-background-2: rgba(232,226,241,0.64);
 }
 @media (prefers-color-scheme: light) {
   :root {
@@ -1795,11 +1822,11 @@ figure.highlight .shrink-line:hover::before {
     --highlight-deletion: #fdd;
     --highlight-addition: #dfd;
     --highlight-gutter-color: #585865;
-    --highlight-gutter-bg-color: #f2f2f2;
+    --highlight-gutter-bg-color: #e8e2f1;
     --mac-toolbar-background-color: #21252b;
     --shrink-line-foreground: #808091;
-    --shrink-line-background-1: rgba(210,210,210,0.9);
-    --shrink-line-background-2: rgba(225,225,225,0.6);
+    --shrink-line-background-1: rgba(250,250,250,0.9);
+    --shrink-line-background-2: rgba(232,226,241,0.64);
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -1848,11 +1875,11 @@ figure.highlight .shrink-line:hover::before {
   --highlight-deletion: #fdd;
   --highlight-addition: #dfd;
   --highlight-gutter-color: #585865;
-  --highlight-gutter-bg-color: #f2f2f2;
+  --highlight-gutter-bg-color: #e8e2f1;
   --mac-toolbar-background-color: #21252b;
   --shrink-line-foreground: #808091;
-  --shrink-line-background-1: rgba(210,210,210,0.9);
-  --shrink-line-background-2: rgba(225,225,225,0.6);
+  --shrink-line-background-1: rgba(250,250,250,0.9);
+  --shrink-line-background-2: rgba(232,226,241,0.64);
 }
 .dark-mode {
   --toolbar-foreground: #adbac5;
@@ -3494,10 +3521,10 @@ figure.highlight .shrink-line:hover::before {
   color: var(--first-screen-font-color-dark);
 }
 .first-screen-container .first-screen-content .description .desc-item .desc {
-  color: var(--first-screen-font-color-light);
+  color: #9476c7;
 }
 .first-screen-container .first-screen-content .description .desc-item .cursor {
-  color: var(--first-screen-font-color-light);
+  color: #ccbaea;
   animation: blink-caret 0.8s step-end infinite;
 }
 @media (max-width: 800px) {
@@ -3762,6 +3789,7 @@ figure.highlight .shrink-line:hover::before {
   transition-timing-function: ease, ease, ease, ease, linear;
   transition-duration: 0.2s, 0.2s, 0.2s, 0.2s, 0.2s;
   transition-property: color, background, box-shadow, border-color, transform;
+  box-shadow: 0 0 8px #bdb2e5;
 }
 .home-content-container .home-post-list .home-post-item:hover {
   transform: scale(var(--home-post-hover-scale));
@@ -3871,12 +3899,18 @@ figure.highlight .shrink-line:hover::before {
     font-size: 1.2rem;
   }
 }
+.home-content-container .home-post-list .home-post-item .home-post-item-bottom .home-post-title a {
+  color: #8961a4;
+}
 .home-content-container .home-post-list .home-post-item .home-post-item-bottom .home-post-content {
   margin: 1.6rem 0;
   color: var(--text-color-3);
   text-align: justify;
   word-wrap: break-word;
   line-height: 1.6;
+}
+.home-content-container .home-post-list .home-post-item:hover {
+  box-shadow: 0 0 12px #a28bf0;
 }
 .archives-container {
   box-sizing: border-box;

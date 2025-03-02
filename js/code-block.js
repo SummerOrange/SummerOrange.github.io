@@ -118,7 +118,8 @@ KEEP.initCodeBlock = () => {
   if (postContentDom && !postContentDom.classList.contains('code-block-unshrink')) {
     KEEP.utils.shrinkCodeBlock = () => {
       const shrinkHandle = (codeBox) => {
-        const limitHeight = 200
+        // const limitHeight = 200
+        const limitHeight = 300
         const tipNodeH = 30
         const codeBoxHeight = codeBox.getBoundingClientRect().height
         if (codeBoxHeight - limitHeight > 50) {
