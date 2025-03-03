@@ -13,7 +13,7 @@ function initPostShareHelper() {
       wechatShare &&
         wechatShare.setAttribute(
           'data-tooltip-img-url',
-          `https://api.qrserver.com/v1/create-qr-code?data=${pageUrl}`
+          `https://api.qrserver.com/v1/create-qr-code/?data=${pageUrl}`
         )
 
       shareContainer.querySelectorAll('.share-item').forEach((item) => {
