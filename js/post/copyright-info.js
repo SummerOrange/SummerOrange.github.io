@@ -40,7 +40,9 @@ function initCopyrightInfoHelper() {
         if (!isCopied) {
           const author = cicDom.querySelector('.copyright-post-author .content').innerHTML
           const link = cicDom.querySelector('.copyright-post-link').innerHTML
-          const tgtTxt = `${ccLang.author}${colon}${author}\n${ccLang.link}${colon}${link}`
+          let license = `本文为作者 ${author} 原创，依据 CC BY-NC-SA 4.0 许可证进行授权，转载请附上出处链接及本声明。商业转载请联系作者获得授权，非商业转载请注明出处。`
+          // const tgtTxt = `${ccLang.author}${colon}${author}\n${ccLang.link}${colon}${link}`
+          const tgtTxt = `${ccLang.author}${colon}${author}\n${ccLang.link}${colon}${link}\n${license}`
           navigator.clipboard.writeText(tgtTxt).then(() => {
             setCopyDomContent('fa-copy', 'fa-check', ccLang.copied, true)
           })
